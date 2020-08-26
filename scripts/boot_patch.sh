@@ -129,6 +129,10 @@ echo "RECOVERYMODE=$RECOVERYMODE" >> config
 [ ! -z $SHA1 ] && echo "SHA1=$SHA1" >> config
 
 ./magiskboot cpio ramdisk.cpio \
+  "rm init.zygote32.rc" \
+  "rm init.zygote64_32.rc"
+
+./magiskboot cpio ramdisk.cpio \
 "add 750 init magiskinit" \
 "patch" \
 "backup ramdisk.cpio.orig" \
