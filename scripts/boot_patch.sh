@@ -172,6 +172,8 @@ if [ -f kernel ]; then
   77616E745F696E697472616D667300
 fi
 
+# Remove sepolicy rule causing bootloop
+sed -i "/genfscon exfat/d" /system/etc/selinux/plat_sepolicy.cil
 #################
 # Repack & Flash
 #################
